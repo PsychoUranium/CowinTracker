@@ -10,7 +10,7 @@ ping_body=""
 #Can change here the value in range from 6 to any number, depending on time.sleep() at last line in below code and for how long want to check the slots
 for turn in range(1,6):
     ping_body=""
-    for i in range(int(today[0])+1,int(today[0])+7):
+    for i in range(int(str(datetime.datetime.now().date())[-1]),int(str(datetime.datetime.now().date())[-1])+7):
       #below range's start and end value is for pincode, I wanted to check availability for all pincodes between 452022 to 462030
         for pin in range(452022,462030):
             max_try,cde=(5,1)
