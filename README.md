@@ -31,3 +31,5 @@ cd /path_to_your_dir_where_file_"interval_10.sh"_is_present/
 cat ./temp.txt
 
 tail -f !$
+
+![Animation](https://user-images.githubusercontent.com/83650379/117131671-5c126400-adbf-11eb-9070-be4daaad333d.gif)
