@@ -36,4 +36,4 @@ for i in range(int(str(datetime.datetime.now().date())[-1]),int(str(datetime.dat
     kit.sendwhatmsg("+91XXXXxxxxxx",ping_body,datetime.datetime.now().hour,datetime.datetime.now().minute+1,30)
 #time.sleep(600) --> By enabling line number 13 and this line, it will check the availability after evey 10 minutes
 
-#Or Can schedule above script using your favourite scheduler/airflow/cron  without enabling line 13 & 36, with your schedule
+#Or Can schedule above script using your favourite scheduler/airflow/crontab  without enabling line 13 & 36, with your schedule
