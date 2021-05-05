@@ -1,5 +1,5 @@
 # CowinTracker
-With range of pincodes, get the prompt notification on whatsapp/monitor available COVID vaccination slots 
+With range of pincodes, get the prompt notification on whatsapp&/monitor available COVID vaccination centers 
 
 # OS/Platform
 Linux
