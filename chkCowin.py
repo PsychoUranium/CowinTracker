@@ -27,7 +27,7 @@ for i in range(int(str(datetime.datetime.now().date())[-1]),int(str(datetime.dat
                     df_avail[['date','pincode','name','available_capacity']].sort_values('date').to_csv('/home/ubuntu/BigData/Projects/COWIN/avail.csv',mode='a',header=False, index=False, sep='~')
             else:
                 sys.stdout.flush()
-                #time.sleep(random.randint(0,3))
+                time.sleep(random.randint(0,5))
             max_try=max_try-1
             cde=resp.status_code
     ping_body=subprocess.check_output('cat /home/ubuntu/BigData/Projects/COWIN/avail.csv', shell=True)
