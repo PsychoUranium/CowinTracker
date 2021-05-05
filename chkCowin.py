@@ -6,6 +6,7 @@ import random
 import pywhatkit as kit
 import datetime
 import subprocess
+import pandas as pd
 
 # replace all path '/home/ubuntu/BigData/Projects/COWIN/avail.csv' with your value
 subprocess.check_output("echo -n '' > /home/ubuntu/BigData/Projects/COWIN/avail.csv 2>&1",shell=True)
