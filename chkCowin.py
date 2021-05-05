@@ -11,7 +11,7 @@ import pandas as pd
 # replace all path '/home/ubuntu/BigData/Projects/COWIN/avail.csv' with your value
 subprocess.check_output("echo -n '' > /home/ubuntu/BigData/Projects/COWIN/avail.csv 2>&1",shell=True)
 
-#for intrval in range(1,200):  -->Enable it when want to check periodically, and change the indentation accordingly
+# Schedule Method 1: for intrval in range(1,200):  -->Enable it when want to check periodically, and change the indentation accordingly
 for i in range(int(str(datetime.datetime.now().date())[-1]),int(str(datetime.datetime.now().date())[-1])+1):
     #below range's start and end value is for pincode list, for example if looking for availability pincodes between 462022 to 462030
     for pin in range(462022,462030):
@@ -33,7 +33,13 @@ for i in range(int(str(datetime.datetime.now().date())[-1]),int(str(datetime.dat
     ping_body=subprocess.check_output('cat /home/ubuntu/BigData/Projects/COWIN/avail.csv', shell=True)
     #Mention here mobile number with +91-MobNo, where want to receive the notification
     #make sure to link web.whatsapp.com with other account on the device running this code
-    kit.sendwhatmsg("+91XXXXxxxxxx",ping_body.decode("utf-8"),datetime.datetime.now().hour,datetime.datetime.now().minute+1,30)
+    if len(ping_body.decode("utf-8")) < 20:
+        print(f"{str(datetime.datetime.now())}             ::    No avail center")
+    else:
+        print(ping_body.decode("utf-8"))
+        kit.sendwhatmsg("+91XXXXxxxxxx",ping_body.decode("utf-8"),datetime.datetime.now().hour,datetime.datetime.now().minute+1,30)
 #time.sleep(600) --> By enabling line number 13 and this line, it will check the availability after evey 10 minutes
 
-#Or Can schedule above script using your favourite scheduler/airflow/crontab  without enabling line 13 & 36, with your schedule
+#Schedule Method 2 : Or Can schedule above script using your favourite scheduler/airflow/crontab  without enabling line 13 & 36, with your schedule
+
+#Schedule Method 3: run interval_10.sh, provided here and from a terminal window use cmd: tail -f ./temp.txt --> to monitor & whatsapp it from terminal
