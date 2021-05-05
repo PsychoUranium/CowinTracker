@@ -42,4 +42,4 @@ for i in range(int(str(datetime.datetime.now().date())[-1]),int(str(datetime.dat
 
 #Schedule Method 2 : Or Can schedule above script using your favourite scheduler/airflow/crontab  without enabling line 13 & 36, with your schedule
 
-#Schedule Method 3: run interval_10.sh, provided here and from a terminal window use cmd: tail -f ./temp.txt --> to monitor & whatsapp it from terminal
+#Schedule Method 3: run interval_10.sh, provided here and from a terminal window use cmd: tail -f ./temp.txt --> to monitor & whatsapp(if avail) it from terminal
