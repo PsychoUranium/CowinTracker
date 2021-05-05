@@ -8,8 +8,7 @@ import datetime
 import subprocess
 import pandas as pd
 
-# replace all path '/home/ubuntu/BigData/Projects/COWIN/avail.csv' with your value
-subprocess.check_output("echo -n '' > /home/ubuntu/BigData/Projects/COWIN/avail.csv 2>&1",shell=True)
+subprocess.check_output("echo -n '' > ./avail.csv 2>&1",shell=True)
 
 # Schedule Method 1: for intrval in range(1,200):  -->Enable it when want to check periodically, and change the indentation accordingly
 for i in range(int(str(datetime.datetime.now().date())[-1]),int(str(datetime.datetime.now().date())[-1])+1):
@@ -24,13 +23,13 @@ for i in range(int(str(datetime.datetime.now().date())[-1]),int(str(datetime.dat
                 if len(op['centers']) > 0 :
                     df=pd.json_normalize(op['centers'],'sessions',['name','pincode'])
                     df_avail=df[(df.available_capacity > 0)]
-                    df_avail[['date','pincode','name','available_capacity']].sort_values('date').to_csv('/home/ubuntu/BigData/Projects/COWIN/avail.csv',mode='a',header=False, index=False, sep='~')
+                    df_avail[['date','pincode','name','available_capacity']].sort_values('date').to_csv('./avail.csv',mode='a',header=False, index=False, sep='~')
             else:
                 sys.stdout.flush()
                 time.sleep(random.randint(0,5))
             max_try=max_try-1
             cde=resp.status_code
-    ping_body=subprocess.check_output('cat /home/ubuntu/BigData/Projects/COWIN/avail.csv', shell=True)
+    ping_body=subprocess.check_output('cat ./avail.csv', shell=True)
     #Mention here mobile number with +91-MobNo, where want to receive the notification
     #make sure to link web.whatsapp.com with other account on the device running this code
     if len(ping_body.decode("utf-8")) < 20:
