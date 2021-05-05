@@ -33,7 +33,7 @@ for i in range(int(str(datetime.datetime.now().date())[-1]),int(str(datetime.dat
     ping_body=subprocess.check_output('cat /home/ubuntu/BigData/Projects/COWIN/avail.csv', shell=True)
     #Mention here mobile number with +91-MobNo, where want to receive the notification
     #make sure to link web.whatsapp.com with other account on the device running this code
-    kit.sendwhatmsg("+91XXXXxxxxxx",ping_body,datetime.datetime.now().hour,datetime.datetime.now().minute+1,30)
+    kit.sendwhatmsg("+91XXXXxxxxxx",ping_body.decode("utf-8"),datetime.datetime.now().hour,datetime.datetime.now().minute+1,30)
 #time.sleep(600) --> By enabling line number 13 and this line, it will check the availability after evey 10 minutes
 
 #Or Can schedule above script using your favourite scheduler/airflow/crontab  without enabling line 13 & 36, with your schedule
