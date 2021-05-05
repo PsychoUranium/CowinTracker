@@ -27,5 +27,7 @@ and
 open new window of terminal using Ctrl+Alt+T, and run command:
 
 cd /path_to_your_dir_where_fil_"interval_10.sh"_is_present/
+
 cat ./temp.txt
+
 tail -f !$
