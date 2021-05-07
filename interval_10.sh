@@ -1,6 +1,6 @@
 #!/bin/bash
 
-exec 3>1 1>>./temp.txt 2>&1
+exec 3>&1 1>>./temp.txt 2>&1
 
 countdown()
 (
