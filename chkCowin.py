@@ -9,8 +9,6 @@ import subprocess
 import pandas as pd
 from fake_useragent import UserAgent
 
-temp_user_agent = UserAgent()
-browser_header = {'User-Agent': temp_user_agent.random}
 subprocess.check_output("echo -n '' > ./avail.csv 2>&1",shell=True)
 
 # Schedule Method 1: for intrval in range(1,200):  -->Enable it when want to check periodically, and change the indentation accordingly
