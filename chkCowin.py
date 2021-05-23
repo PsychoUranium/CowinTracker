@@ -10,11 +10,11 @@ import pandas as pd
 from fake_useragent import UserAgent
 
 subprocess.check_output("echo -n '' > ./avail.csv 2>&1",shell=True)
-
+pincodes=[462022,462027,458796,462030]   #--->list of your pincodes
 # Schedule Method 1: for intrval in range(1,200):  -->Enable it when want to check periodically, and change the indentation accordingly
 for i in range(int(str(datetime.datetime.now().date()).split('-')[-1]),int(str(datetime.datetime.now().date()).split('-')[-1])+1):
     #below range's start and end value is for pincode list, for example if looking for availability pincodes between 462022 to 462030
-    for pin in range(462022,462030):
+    for pin in pincodes:
         max_try,cde=(5,1)
         while max_try != 0 and cde != 200 :
             browser_header = {'User-Agent': temp_user_agent.random}            
@@ -28,7 +28,7 @@ for i in range(int(str(datetime.datetime.now().date()).split('-')[-1]),int(str(d
                     df_avail[['date','pincode','name','available_capacity']].sort_values('date').to_csv('./avail.csv',mode='a',header=False, index=False, sep='~')
             else:
                 sys.stdout.flush()
-                time.sleep(random.randint(0,5))
+                time.sleep(random.randint(30,60))
             max_try=max_try-1
             cde=resp.status_code
     ping_body=subprocess.check_output('cat ./avail.csv', shell=True)
