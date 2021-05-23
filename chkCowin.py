@@ -7,17 +7,20 @@ import pywhatkit as kit
 import datetime
 import subprocess
 import pandas as pd
+from fake_useragent import UserAgent
 
+temp_user_agent = UserAgent()
+browser_header = {'User-Agent': temp_user_agent.random}
 subprocess.check_output("echo -n '' > ./avail.csv 2>&1",shell=True)
 
 # Schedule Method 1: for intrval in range(1,200):  -->Enable it when want to check periodically, and change the indentation accordingly
-for i in range(int(str(datetime.datetime.now().date())[-1]),int(str(datetime.datetime.now().date())[-1])+1):
+for i in range(int(str(datetime.datetime.now().date()).split('-')[-1]),int(str(datetime.datetime.now().date()).split('-')[-1])+1):
     #below range's start and end value is for pincode list, for example if looking for availability pincodes between 462022 to 462030
     for pin in range(462022,462030):
         max_try,cde=(5,1)
         while max_try != 0 and cde != 200 :
             resp = requests.get\
-            (f'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode={str(pin)}&date={i:0=2d}-05-2021')
+            (f'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode={str(pin)}&date={i:0=2d}-05-2021',headers=browser_header)
             if resp.status_code == 200 :
                 op=resp.json()
                 if len(op['centers']) > 0 :
