@@ -39,8 +39,8 @@ for i in range(int(str(datetime.datetime.now().date()).split('-')[-1]),int(str(d
     else:
         print(ping_body.decode("utf-8"))
         kit.sendwhatmsg("+91XXXXxxxxxx",ping_body.decode("utf-8"),datetime.datetime.now().hour,datetime.datetime.now().minute+1,30)
-#time.sleep(600) --> By enabling line number 13 and this line, it will check the availability after evey 10 minutes
+#time.sleep(600) --> By enabling line number 14 and this line, it will check the availability after evey 10 minutes
 
-#Schedule Method 2 : Can schedule above script using your favourite scheduler/airflow/crontab  without enabling line 13 & 36, with your schedule
+#Schedule Method 2 : Can schedule above script using your favourite scheduler/airflow/crontab  without enabling line 14 & 42, with your schedule
 
 #Schedule Method 3: run interval_10.sh, provided here and from a terminal window use cmd: tail -f ./temp.txt --> to monitor & whatsapp(if avail) it from terminal
