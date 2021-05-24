@@ -17,6 +17,7 @@ for i in range(int(str(datetime.datetime.now().date()).split('-')[-1]),int(str(d
     for pin in pincodes:
         max_try,cde=(5,1)
         while max_try != 0 and cde != 200 :
+            temp_user_agent = UserAgent()
             browser_header = {'User-Agent': temp_user_agent.random}            
             resp = requests.get\
             (f'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByPin?pincode={str(pin)}&date={i:0=2d}-05-2021',headers=browser_header)
