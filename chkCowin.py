@@ -25,7 +25,7 @@ for i in range(int(str(datetime.datetime.now().date()).split('-')[-1]),int(str(d
                 op=resp.json()
                 if len(op['centers']) > 0 :
                     df=pd.json_normalize(op['centers'],'sessions',['name','pincode'])
-                    df_avail=df[(df.available_capacity > 0)]
+                    df_avail=df[(df.available_capacity_dose1 > 0)]
                     df_avail[['date','pincode','name','available_capacity']].sort_values('date').to_csv('./avail.csv',mode='a',header=False, index=False, sep='~')
             else:
                 sys.stdout.flush()
